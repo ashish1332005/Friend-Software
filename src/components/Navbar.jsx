@@ -61,17 +61,20 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
+  const navTextClass = isScrolled ? 'text-slate-950' : 'text-white drop-shadow-sm';
+  const navMutedClass = isScrolled ? 'text-slate-500' : 'text-white/75';
+
   return (
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
-        isScrolled ? 'py-2 md:py-3' : 'py-3 md:py-4'
+        isScrolled ? 'py-2 md:py-3' : 'py-2.5 md:py-4'
       }`}
     >
       <nav
-        className={`container flex min-h-[64px] items-center justify-between transition-all duration-500 md:min-h-[76px] ${
+        className={`container flex min-h-[62px] items-center justify-between transition-all duration-500 md:min-h-[70px] ${
           isScrolled
-            ? 'border-white/70 bg-white/90 py-1 shadow-lg shadow-slate-900/5 backdrop-blur-2xl md:rounded-2xl md:border md:px-5'
-            : 'py-1'
+            ? 'border-white/70 bg-white/92 py-1 shadow-lg shadow-slate-900/5 backdrop-blur-2xl md:rounded-2xl md:border md:px-4'
+            : 'py-1 md:px-0'
         }`}
         aria-label="Main navigation"
       >
@@ -81,7 +84,7 @@ const Navbar = () => {
           className="group relative z-10 flex min-w-0 items-center gap-3"
           aria-label="Friend Software home"
         >
-          <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl transition-all duration-300 group-hover:scale-105 md:h-[72px] md:w-[72px] lg:h-[82px] lg:w-[82px]">
+          <div className="relative flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl transition-all duration-300 group-hover:scale-105 md:h-16 md:w-16 lg:h-[72px] lg:w-[72px]">
             <img
               src={logo}
               alt="Friend Software"
@@ -91,30 +94,26 @@ const Navbar = () => {
 
           <div className="min-w-0 leading-none sm:block">
             <h1
-              className={`truncate text-lg font-black tracking-tight transition-colors duration-300 sm:text-xl lg:text-[26px] ${
-                isScrolled ? 'text-slate-950' : 'text-white drop-shadow-sm'
-              }`}
+              className={`truncate text-base font-black tracking-tight transition-colors duration-300 sm:text-lg lg:text-xl ${navTextClass}`}
             >
               Friend Software
             </h1>
             <p
-              className={`mt-1 hidden text-[10px] font-semibold tracking-[0.18em] transition-colors duration-300 sm:block lg:text-xs lg:tracking-[0.22em] ${
-                isScrolled ? 'text-slate-500' : 'text-white/75'
-              }`}
+              className={`mt-1 hidden text-[9px] font-bold uppercase tracking-[0.18em] transition-colors duration-300 sm:block lg:text-[10px] ${navMutedClass}`}
             >
               DIGITAL GROWTH
             </p>
           </div>
         </Link>
         {/* Desktop Nav */}
-        <div className="hidden items-center gap-1 rounded-full border border-slate-200/80 bg-white/80 p-1 shadow-sm backdrop-blur xl:flex">
+        <div className="hidden items-center gap-1 rounded-full border border-slate-200/80 bg-white/85 p-1 shadow-sm backdrop-blur lg:flex">
           {navLinks.map((link) => (
             <NavLink
               key={link.name}
               to={link.href}
               end={link.href === '/'}
               className={({ isActive }) =>
-                `relative rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                `relative rounded-full px-3 py-2 text-[13px] font-bold transition-all duration-300 xl:px-4 ${
                   isActive
                     ? 'bg-primary text-white shadow-md shadow-primary/20'
                     : 'text-slate-600 hover:bg-slate-100 hover:text-primary'
@@ -126,20 +125,20 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           <a
             href="tel:+919521066616"
-            className="hidden h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/80 text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary lg:flex"
+            className="hidden h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/85 text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-primary lg:flex"
             aria-label="Call Friend Software"
           >
             <Phone size={17} />
           </a>
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/35"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-4 text-sm font-bold text-white shadow-lg shadow-primary/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/35 xl:px-5"
           >
             <Sparkles size={14} />
-            Get A Quote
+            <span className="hidden sm:inline">Get A Quote</span>
             <ArrowRight size={14} />
           </Link>
         </div>
@@ -147,7 +146,7 @@ const Navbar = () => {
         {/* Mobile Toggle */}
         <button
           type="button"
-          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-dark shadow-sm backdrop-blur transition-colors hover:bg-slate-100 xl:hidden"
+          className="relative z-50 flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white/95 text-dark shadow-sm backdrop-blur transition-colors hover:bg-slate-100 lg:hidden"
           onClick={() => setIsMobileMenuOpen((o) => !o)}
           aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMobileMenuOpen}
@@ -166,7 +165,7 @@ const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-slate-950/55 backdrop-blur-sm xl:hidden"
+              className="fixed inset-0 bg-slate-950/55 backdrop-blur-sm lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -178,9 +177,9 @@ const Navbar = () => {
               role="dialog"
               aria-modal="true"
               aria-label="Mobile navigation"
-              className="fixed bottom-0 right-0 top-0 z-50 flex w-full max-w-[390px] flex-col overflow-hidden bg-white shadow-2xl shadow-slate-950/25 xl:hidden"
+              className="fixed bottom-0 right-0 top-0 z-50 flex w-full max-w-[390px] flex-col overflow-hidden bg-white shadow-2xl shadow-slate-950/25 lg:hidden"
             >
-              <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-slate-100 px-5 py-3.5">
                 <Link
                   to="/"
                   className="flex min-w-0 items-center gap-3"
@@ -207,12 +206,12 @@ const Navbar = () => {
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto px-5 py-5">
-                <div className="mb-5 rounded-3xl bg-slate-950 p-5 text-white">
-                  <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              <div className="flex-1 overflow-y-auto px-5 py-4">
+                <div className="mb-4 rounded-3xl bg-slate-950 p-5 text-white">
+                  <p className="mb-2 text-xs font-black uppercase tracking-[0.2em] text-primary">
                     Let's build
                   </p>
-                  <p className="text-xl font-bold leading-snug">
+                  <p className="text-lg font-black leading-snug">
                     Websites, apps, ERP, and marketing that help your business grow.
                   </p>
                 </div>

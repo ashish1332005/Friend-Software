@@ -58,7 +58,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="relative overflow-hidden bg-white py-14 text-slate-950 md:py-20">
+    <section id="services" className="relative overflow-hidden bg-white py-16 text-slate-950 md:py-24">
       <div
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"
       />
@@ -72,7 +72,7 @@ const Services = () => {
       />
 
       <div className="container relative z-10">
-        <div className="mb-8 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+        <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -80,12 +80,12 @@ const Services = () => {
             transition={{ duration: 0.55, ease: "easeOut" }}
             className="max-w-3xl"
           >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-lg border border-primary/15 bg-primary/5 px-3 py-2 text-sm font-bold text-primary">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/15 bg-primary/5 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-primary">
               <Sparkles size={16} />
               Services
             </div>
 
-            <h2 className="text-3xl font-black leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-[2.75rem]">
+            <h2 className="text-3xl font-black leading-tight tracking-tight text-slate-950 sm:text-4xl md:text-5xl">
               Services that cover your complete digital growth.
             </h2>
 
@@ -96,14 +96,14 @@ const Services = () => {
 
           <Link
             to="/contact"
-            className="inline-flex h-12 w-fit items-center justify-center gap-2 rounded-lg bg-slate-950 px-5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-primary"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-slate-950 px-5 text-sm font-black text-white transition-all hover:-translate-y-0.5 hover:bg-primary sm:w-fit"
           >
             Get A Quote
             <ArrowRight size={17} />
           </Link>
         </div>
 
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -115,10 +115,10 @@ const Services = () => {
                 viewport={{ once: true, amount: 0.25 }}
                 transition={{ duration: 0.5, delay: index * 0.045, ease: "easeOut" }}
                 whileHover={{ y: -4 }}
-                className="group rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:border-primary/25 hover:shadow-lg hover:shadow-slate-900/10"
+                className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-xl hover:shadow-slate-900/10"
               >
                 <div className="flex gap-4">
-                  <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border ${service.accent}`}>
+                  <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${service.accent}`}>
                     <Icon size={21} />
                   </div>
 
@@ -134,7 +134,7 @@ const Services = () => {
 
                     <p className="mt-2 text-sm leading-6 text-slate-600">{service.desc}</p>
 
-                    <span className="mt-3 inline-flex rounded-md bg-slate-50 px-2.5 py-1.5 text-xs font-bold text-slate-500">
+                    <span className="mt-4 inline-flex rounded-full bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-500">
                       {service.highlight}
                     </span>
                   </div>

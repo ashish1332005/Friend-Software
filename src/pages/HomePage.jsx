@@ -7,17 +7,15 @@ import Portfolio from '../sections/Portfolio';
 import ERPProducts from '../sections/ERPProducts';
 import ContactCTA from '../sections/ContactCTA';
 
-
 const HomePage = () => {
   return (
     <>
       <Hero />
-        <Services />
+      <Services />
+      <Portfolio />
+      <ERPProducts />
       <Clients />
       <About />
-           <ERPProducts />
-      <Portfolio />
- 
       <ContactCTA />
     </>
   );
