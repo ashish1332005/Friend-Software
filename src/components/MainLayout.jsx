@@ -1,0 +1,20 @@
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import ScrollToTop from './ScrollToTop';
+
+const MainLayout = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      <ScrollToTop />
+      <Navbar />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default MainLayout;
