@@ -15,8 +15,9 @@ const HomePage = () => {
         <Services />
       <Clients />
       <About />
+           <ERPProducts />
       <Portfolio />
-      <ERPProducts />
+ 
       <ContactCTA />
     </>
   );
