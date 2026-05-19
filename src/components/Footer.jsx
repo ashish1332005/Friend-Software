@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import {
   Share2,
   Camera,
@@ -49,19 +50,19 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden bg-slate-950 pt-20 pb-8 text-white">
+    <footer className="relative overflow-hidden bg-slate-950 pt-12 pb-7 text-white md:pt-20 md:pb-8">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(79,70,229,0.12),_transparent_50%)]" />
       <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
       <div className="absolute -right-24 bottom-10 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
 
       <div className="container relative z-10">
-        <div className="mb-12 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 md:p-8">
+        <div className="mb-10 rounded-3xl border border-white/10 bg-white/[0.03] p-5 md:mb-12 md:rounded-[2rem] md:p-8">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div>
+            <div className="text-center lg:text-left">
               <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-primary">
                 Ready to grow online?
               </p>
-              <h3 className="text-2xl font-bold md:text-3xl">
+              <h3 className="text-xl font-bold leading-snug md:text-3xl">
                 Build your website, ERP, app, or marketing system with Friend Software.
               </h3>
             </div>
@@ -88,11 +89,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-5">
-          <div className="xl:col-span-1">
-            <Link to="/" className="mb-6 flex items-center gap-2.5">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-secondary text-lg font-extrabold text-white shadow-lg shadow-primary/25">
-                F
+        <div className="mb-12 grid grid-cols-2 gap-x-6 gap-y-10 md:mb-16 md:grid-cols-2 md:gap-12 xl:grid-cols-5">
+          <div className="col-span-2 text-center md:text-left xl:col-span-1">
+            <Link to="/" className="mb-5 flex flex-col items-center gap-2.5 md:mb-6 md:flex-row md:items-center">
+              <div className="flex h-14 w-14 items-center justify-center md:h-16 md:w-16">
+                <img
+                  src={logo}
+                  alt="Friend Software"
+                  className="h-full w-full object-contain"
+                />
               </div>
 
               <span className="text-xl font-bold tracking-tight">
@@ -103,12 +108,12 @@ const Footer = () => {
               </span>
             </Link>
 
-            <p className="mb-6 max-w-xs text-sm leading-relaxed text-slate-400">
+            <p className="mx-auto mb-6 max-w-sm text-sm leading-relaxed text-slate-400 md:mx-0 md:max-w-xs">
               Friend Software helps businesses grow with websites, apps, ERP software,
               AI-powered reports, hosting guidance, and digital marketing solutions.
             </p>
 
-            <div className="flex gap-3">
+            <div className="flex justify-center gap-3 md:justify-start">
               {socials.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
@@ -123,11 +128,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.15em] text-slate-300">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-slate-300 md:mb-6 md:text-sm">
               Company
             </h4>
 
-            <ul className="flex flex-col gap-3.5">
+            <ul className="flex flex-col gap-3">
               {footerLinks.company.map(({ name, to }) => (
                 <li key={name}>
                   <Link
@@ -146,11 +151,11 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.15em] text-slate-300">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-slate-300 md:mb-6 md:text-sm">
               Services
             </h4>
 
-            <ul className="flex flex-col gap-3.5">
+            <ul className="flex flex-col gap-3">
               {footerLinks.services.map(({ name, to }) => (
                 <li key={name}>
                   <Link
@@ -168,12 +173,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.15em] text-slate-300">
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-slate-300 md:mb-6 md:text-sm">
               Resources & Legal
             </h4>
 
-            <ul className="mb-8 flex flex-col gap-3.5">
+            <ul className="mb-6 grid grid-cols-2 gap-3 md:mb-8 md:flex md:flex-col md:gap-3.5">
               {footerLinks.resources.map(({ name, to }) => (
                 <li key={name}>
                   <Link
@@ -190,7 +195,7 @@ const Footer = () => {
               ))}
             </ul>
 
-            <ul className="flex flex-col gap-3.5 border-t border-white/10 pt-6">
+            <ul className="grid grid-cols-1 gap-3 border-t border-white/10 pt-6 sm:grid-cols-2 md:flex md:flex-col md:gap-3.5">
               {footerLinks.legal.map(({ name, to }) => (
                 <li key={name}>
                   <Link
@@ -208,12 +213,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
-            <h4 className="mb-6 text-sm font-bold uppercase tracking-[0.15em] text-slate-300">
+          <div className="col-span-2 xl:col-span-1">
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-[0.15em] text-slate-300 md:mb-6 md:text-sm">
               Contact Us
             </h4>
 
-            <ul className="flex flex-col gap-5">
+            <ul className="grid gap-4 sm:grid-cols-2 xl:flex xl:flex-col xl:gap-5">
               <li className="flex items-start gap-3">
                 <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
                   <MapPin size={16} />
